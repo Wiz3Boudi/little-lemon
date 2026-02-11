@@ -1,15 +1,6 @@
-import { User, Op, } from '../config/index.model.js';
+import { User } from '../config/index.model.js';
 import { sendOTP } from '../config/verifyEmail.js';
 import { validationResult } from 'express-validator';
-// async function deleteUsers(){
-//     try {
-//         const allUsers = await User.destroy({where: {id:{[Op.gt]: 0}}})
-//         console.log(allUsers);
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-// deleteUsers()
 
 export const login = async (req, res) => {
     try {
