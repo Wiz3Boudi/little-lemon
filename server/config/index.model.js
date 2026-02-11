@@ -12,7 +12,7 @@ dotenv.config();
 const connection = new Sequelize(process.env.DATABASE_CONNECTION, {
   dialect: 'mysql',
   logging: false,
-  // dialectModule: 'mysql2',
+  dialectModule: mysql2,
   pool: {
     max: 5,
     min: 0,
