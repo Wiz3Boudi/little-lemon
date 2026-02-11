@@ -1,0 +1,34 @@
+<div style="width: 100%; height: 1px; background-color: #495E57; margin-top: 2.1rem; position: fixed; z-index: 1000;">
+</div>
+<div class="verify-email">
+    <div>
+        <h4>
+            Verify your account
+        </h4>
+        <p style="font-size: 0.7rem;">Check your email box for verification code</p>
+        <% if(email) { %>
+            <p style="font-size: 0.9rem; color: green;">
+                A verification code has been sent to <%= email %>
+            </p> 
+        <% } %> 
+    </div>
+    <form class="code" action="verify-email" method="post">
+        <input class="form-control" name="code" type="text" placeholder="Enter X X X X X X">
+        <% if(errorFlash){ %>
+            <div>
+                <p style="color: red;">
+                    <%= errorFlash %>
+                </p>
+            </div>
+            <% } %>
+        <button class="btn btn-warning" type="submit">send</button>
+    </form>
+    <form action="resend" method="post">
+        <div>
+            <p style="color: darkslategrey;">
+                did not receive a code ?
+            </p>
+            <button class="btn" type="submit" style="color: rgb(20, 20, 49);"> Resend</button>
+        </div>
+    </form>
+</div>

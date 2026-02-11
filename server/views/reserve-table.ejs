@@ -1,0 +1,72 @@
+<div class="reservation">
+  <div class="book_table">
+    <div class="book_header">
+      <h1 style="color: #F4CE14;">Book now</h1>
+      <h2 style="color: #F4CE14;">Cairo</h2>
+    </div>
+    <div>
+      <p style="color: white;">find a table for any occasion</p>
+    </div>
+    <div>
+      <% if(errorMessages) { %>
+        <p style="color: red; font-size: 1.5rem;">
+          <%= errorMessages[0] %>
+        </p>
+        <% } %>
+    </div>
+    <div>
+      <% if(successMessage !='') { %>
+        <p style="color: forestgreen; font-size: 1.5rem;">
+          <%= successMessage %>
+        </p>
+        <p style="color: #F4CE14;">please check your email box</p>
+        <% } %>
+    </div>
+    <form action="/reservation" method="post" class="form">
+      <div>
+        <label style="color: #F4CE14;" for="pickTime">Select date</label>
+        <input class="form-control" name="chooseDate" type="date" required>
+      </div>
+      <div>
+        <label style="color: #F4CE14;" for="pickTime">Choose time</label>
+        <select name="pickTime" class="form-select" required>
+          <option value="Choose time" selected>Choose time</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+          <option value="8:00 PM">8:00 PM</option>
+          <option value="9:00 PM">9:00 PM</option>
+          <option value="10:00 PM">10:00 PM</option>
+          <option value="11:00 PM">11:00 PM</option>
+          <option value="12:00 PM">12:00 PM</option>
+        </select>
+      </div>
+      <div>
+        <label style="color: #F4CE14;" for="pickTime">Number of guest</label>
+        <input class="form-control input" name="numberOfGuest" type="number" placeholder="Number of guest" required>
+      </div>
+      <div>
+        <label style="color: #F4CE14;" for="pickTime">Choose an occasion</label>
+        <select name="occasion" class="form-select" required>
+          <option value="pick an occasion" selected>Pick an occasion</option>
+          <option value="anniversary">Anniversary</option>
+          <option value="birthday">Birthday</option>
+          <option value="engagement">Engagement</option>
+        </select>
+      </div>
+      <div>
+        <div class="standard" style="display: flex; gap: 3rem;">
+          <span style="color: #F4CE14;">Standard</span>
+          <input class="form-check" value="standard" name="seatingOption" type="radio" required>
+        </div>
+        <div class="outside" style="display: flex; gap: 3rem;">
+          <span style="color: #F4CE14;">Outside</span>
+          <input class="form-check" value="outside" name="seatingOption" type="radio" required>
+        </div>
+      </div>
+      <div>
+        <button style="color: black;" type="submit" class="btn btn-warning w-100">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

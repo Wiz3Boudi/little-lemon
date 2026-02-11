@@ -1,0 +1,17 @@
+.reservation{
+    background-color: #495E57;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+.book_table{
+    max-width: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

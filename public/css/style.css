@@ -1,0 +1,357 @@
+:root {
+    --section-background: #495E57;
+    --text-main: #333333;
+    --primary-font-size: 1rem;
+    --secondary-font-size: 1.25rem;
+    --primary-border-radius: 5px;
+    --secondary-border-radius: 15px;
+    --bt-background-h1: #F4CE14;
+    --bt-text-color: #333333;
+    --font-family: sans-serif;
+    --primary-gap: 1rem;
+    --secondary-gap: 2rem;
+
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-main);
+}
+
+ul {
+    list-style: none;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+}
+
+.nav_menu {
+    display: none;
+    flex-direction: column;
+    text-align: left;
+    position: fixed;
+    top: 65px;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 1000;
+    background-color: white;
+}
+
+.nav_menu.active {
+    display: flex;
+}
+
+.nav_menu li a {
+    text-decoration: none;
+    font-family: var(--font-family);
+    color: var(--bt-text-color);
+}
+
+.nav_menu li a:hover,
+.nav_menu li a:hover {
+    color: var(--bt-background-h1);
+    text-decoration: underline;
+}
+
+.mobile_nav_bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--text-main);
+}
+
+.cart_icon {
+    align-content: center;
+}
+
+.mobile_nav_bar.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile_nav_bar.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile_nav_bar.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.top {
+    padding-top: 2rem;
+}
+
+.reserve_table {
+    border: none;
+    border-radius: var(--primary-border-radius);
+    background-color: var(--bt-background-h1);
+    padding: 0.7rem;
+}
+
+.reserve_table a {
+    color: var(--bt-text-color);
+}
+
+.header_img_div img {
+    width: 200px;
+    max-height: 200px;
+}
+
+img {
+    object-fit: cover;
+}
+
+.mini_nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.mini_nav button,
+.card_order_btn button {
+    border: none;
+    padding: 0.4rem;
+    box-shadow: #333333;
+    border-radius: var(--primary-border-radius);
+}
+
+.mini_nav button a,
+.card_order_btn button a {
+    color: var(--bt-text-color);
+    text-decoration: none;
+}
+
+.cards,
+.Testimony {
+    display: flex;
+    flex-direction: column;
+    gap: var(--primary-gap);
+
+}
+
+.card_order_btn button a {
+    color: var(--bt-text-color);
+    padding: 0.2rem;
+}
+
+.card,
+.Testimonies_cards {
+    box-shadow: #333333;
+    padding: 1rem;
+}
+
+.Testimonies_cards {
+    justify-items: center;
+}
+
+.card img,
+.Testimonies_cards img {
+    min-width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+footer>div {
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer_link:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: var(--section-background);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 3px solid #f4ce14;
+    padding-top: 2rem;
+}
+
+footer>div {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer_div {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer_div h5,
+.footer_div h6 {
+    color: #f4ce14;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.footer_div li {
+    margin-bottom: 0.8rem;
+}
+
+.footer_link {
+    color: #cccccc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.footer_link:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+.login {
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.verify-email {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 4rem;
+    max-width: 60%;
+    width: 100%;
+    justify-self: center;
+}
+
+.code {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dashboard {
+    padding-top: 4rem;
+    max-width: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-content: center;
+    justify-items: center;
+    align-content: center;
+}
+
+.mini {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+@media (min-width: 768px) {
+    .top {
+        width: 73%;
+        justify-self: center;
+    }
+
+    .cards,
+    .Testimony {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 95%;
+        justify-self: center;
+    }
+
+    .Testimonies_cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .mobile_nav_bar {
+        display: none;
+    }
+
+    .nav {
+        display: grid;
+        grid-template-columns: 40% 45% 15%;
+        align-items: center;
+    }
+
+    .nav_menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: right;
+    }
+
+    .top {
+        justify-self: right;
+    }
+
+    .nav_menu li a {
+        padding: 0 0.2rem;
+    }
+
+    .description {
+        width: 300px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .Testimony {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: 1280px) {
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .Testimony {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}

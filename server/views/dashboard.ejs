@@ -1,0 +1,52 @@
+<div style="width: 100%; height: 1px; background-color: #495E57; margin-top: 2.1rem; position: fixed; z-index: 1000;">
+</div>
+<div class="dashboard">
+  <div class="mini">
+
+    <% if (user && user.dataValues) { %>
+    <div>
+      <div>
+        <h1>Account center</h1>
+      </div>
+      <div style="padding: 1rem;">
+        <span>
+          <h4 style="display: inline; margin-left: -1rem; padding-top: 1rem;">Welcome</h4>
+        </span> <span>
+          <%= user.dataValues.username %>
+        </span>
+      </div>
+    </div>
+    <% const fieldsToSkip=['id', 'password' , 'createdAt' , 'updatedAt' ]; for (let [key, value] of
+        Object.entries(user.dataValues)) { if (fieldsToSkip.includes(key)) continue; if(key==='username' ) key='name' %>
+    <div class="user-field">
+      <p>
+        <strong>
+          <%= key.charAt(0).toUpperCase() + key.slice(1) %>:
+        </strong>
+        <% if (typeof value==='boolean' ) { %>
+        <%= value ? 'Yes' : 'No' %>
+        <% } else { %>
+        <%= value %>
+        <% } %>
+      </p>
+    </div>
+    <% } %>
+
+    <% } else { %>
+    <p class="error">Something went wrong! Try again</p>
+    <% } %>
+
+    <div class="settings-link">
+      <a href="/settings">Settings</a>
+    </div>
+    <div style="padding-top: 1rem;">
+      <form action="/account/<%= user.dataValues.id %>?_method=DELETE" method="POST">
+        <input type="hidden" name="_method" value="Delete">
+        <button class="btn btn-danger" type="submit">Delete Account</button>
+      </form>
+        <form action="/logout" method="POST" style="padding-top: 1rem;">
+        <button class="btn btn-danger" type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+</div>

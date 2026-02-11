@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Lemon</title>
+    <% if (consestantDAta) { %>
+        <link rel="icon" href="<%= consestantDAta.response[0].URL %>" type="image/svg">
+        <% } %>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+                crossorigin="anonymous">
+            <link rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+                rel="stylesheet">
+            <link rel="stylesheet" href="/css/style.css">
+            <link rel="stylesheet" href="/css/reservation.css">
+            <style>
+            </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="mobile_nav_bar" id="mobileNavBar">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <% if (consestantDAta) { %>
+                <ul class="logo">
+                    <li>
+                        <a href="/">
+                            <img style="height: 50px; width: auto;" src="<%= consestantDAta.response[0].URL %>"
+                                alt="logo">
+                        </a>
+                    </li>
+                </ul>
+                <% } %>
+                    <ul class="nav_menu" id="navBar">
+                        <li><a class="nav-link" href="/home">Home</a></li>
+                        <li><a class="nav-link" href="/">About</a></li>
+                        <li><a class="nav-link" href="/">Menu</a></li>
+                        <li><a class="nav-link" href="/reservation">Reservation</a></li>
+                        <li><a class="nav-link" href="/">order-online</a></li>
+                        <% if(consestantDAta.user) {%>
+                            <li title="<%= consestantDAta.user.username %>"><a class="nav-link" href="/dashboard/users/<%= consestantDAta.user.id %>"><i class="bi bi-person-circle"></i></a></li>
+                        <% } else { %>
+                        <li><a class="nav-link" href="/login">Login</a></li>
+                        <% } %>
+                    </ul>
+                    <ul class="cart_icon">
+                        <li>
+                            <a style="color: black;" href=""><i class="bi bi-cart fs-2"></i></i></a>
+                        </li>
+                    </ul>
+        </nav>
+    </header>
+    <main style="padding: 2rem 0;">
+        <%- body %>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer_div">
+                <h6> Contact us</h6>
+                <ul>
+                    <li><a class="footer_link" href="">Whatsapp</a></li>
+                    <li><a class="footer_link" href="">Mail</a></li>
+                    <li><a class="footer_link" href="">LinkedIn</a></li>
+                </ul>
+                <ul>
+                    <li>
+                        <a target="_blank" style="color: white; text-decoration: none;"
+                            href="https://github.com/Wiz3Boudi">Github</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_div">
+                <h5>Location</h5>
+                <ul>
+                    <li><a class="footer_link" href="">Downtown</a></li>
+                    <li><a class="footer_link" href="">Email</a></li>
+                    <li><a class="footer_link" href="">Map</a></li>
+                </ul>
+            </div>
+            <div class="footer_div">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a class="footer_link" href="">Home</a></li>
+                    <li><a class="footer_link" href=""> About</a></li>
+                    <li><a class="footer_link" href="">Menu</a></li>
+                    <li><a class="footer_link" href="">Reservation</a></li>
+                    <li><a class="footer_link" href="">order-online</a></li>
+                    <li><a class="footer_link" href="">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer_div">
+                <h5>Media links</h5>
+                <ul>
+                    <li><a class="footer_link" href="">Facebook</a></li>
+                    <li><a class="footer_link" href=""> Insatgram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+    <script>
+        const mobileNavBar = document.getElementById('mobileNavBar');
+        const navBar = document.getElementById('navBar');
+
+        mobileNavBar.addEventListener('click', () => {
+            mobileNavBar.classList.toggle('active');
+            navBar.classList.toggle('active')
+        });
+
+        const navLink = document.querySelectorAll('.nav-link');
+        navLink.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavBar.classList.remove('active');
+                navBar.classList.remove('active');
+            })
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!navBar.contains(event.target) && !mobileNavBar.contains(event.target)) {
+                mobileNavBar.classList.remove('active');
+                navBar.classList.remove('active');
+            }
+        })
+    </script>
+</body>
+
+</html>
