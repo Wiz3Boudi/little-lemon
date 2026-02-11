@@ -9,7 +9,9 @@ import initUserModel from '../models/users.model.js';
 
 import dotenv from 'dotenv';
 dotenv.config();
-const connection = new Sequelize(process.env.DATABASE_CONNECTION, {
+const connection = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
   dialect: 'mysql',
   logging: false,
   dialectModule: mysql2,
