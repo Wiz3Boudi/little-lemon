@@ -1,5 +1,5 @@
 import { Sequelize, Op } from 'sequelize';
-import mysql2 from 'mysql'
+import mysql2 from 'mysql2';
 import initLogo from '../models/logo.model.js';
 import initCardsModel from '../models/cards.model.js';
 import initTestimony from '../models/Testimony.model.js';
