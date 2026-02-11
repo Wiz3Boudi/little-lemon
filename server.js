@@ -32,7 +32,7 @@ app.use(flash());
 passportConfiguration();
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.set('trust proxy', 1);
 import router from './server/routes/index.route.js';
 import userRouter from './server/routes/usersRoutes.js';
 import * as controllers from './server/controllers/index.controller.js';
